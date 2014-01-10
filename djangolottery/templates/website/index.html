@@ -2,8 +2,53 @@
 <html>
 <head>
 <title>Bitcoin Lottery</title>
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}">
 </head>
 <body>
-
+	<header id="page-header">
+		<div class="wrap">
+			<h1 id="logo">Bitcoin Lottery</h1>
+			<span id="current-value">1btc = 980.21 USD</span>
+		</div>
+	</header>
+	<section id="cover">
+		<div class="wrap">
+			<h2 id="slogan">The coolest lottery on the planet</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus semper, eros ac congue iaculis, libero <br/>
+			lorem hendrerit felis, ac ultrices augue purus a tellus. Pellentesque non libero fringilla eros blandit<br/>
+			ultricies. Nullam elementum dolor in mauris vestibulum, id vulputate sapien ultricies. Class aptent taciti<br/>
+			sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+		</div>
+	</section>
+	<div class="wrap">
+		<form id="participate" action="participate" method="POST">
+			{% csrf_token %}
+			<input type="text" name="name" placeholder="Name"/>
+			<input type="email" name="email" placeholder="E-mail Adress"/>
+			<input type="text" name="bcaddress" placeholder="Bitcoin Address"/>
+			<input type="text" name="amount" placeholder="Amount"/>
+			<input type="submit" class="green" value="Participate"/>
+		</form>
+	</div>
+	<div class="wrap">
+		<section class="s4">
+			<h3>Participants from all over the world</h3>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus semper, eros ac congue iaculis, libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus semper, eros ac congue iaculis, libero.</p>
+		</section>
+		<section class="s4">
+			<h3>New draw every month</h3>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus semper, eros ac congue iaculis, libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus semper, eros ac congue iaculis, libero.</p>
+		</section>
+		<section class="s4">
+			<h3>I like tangerines</h3>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus semper, eros ac congue iaculis, libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus semper, eros ac congue iaculis, libero.</p>
+		</section>
+	</div>
+	<div class="wrap">
+		<footer id="page-footer">
+				<span>&copy; 2014 - Bitcoin Lottery</span>
+		</footer>
+	</div>
 </body>
 </html>

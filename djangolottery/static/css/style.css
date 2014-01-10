@@ -1,0 +1,127 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+
+body{
+	font-family: 'Lato';
+	font-size: 14px;
+	color: #232323;
+	margin: 0;
+}
+
+p{
+	margin: 0;
+}
+
+.wrap{
+	position: relative;
+	margin: 0 auto;
+	width: 960px;
+	overflow: auto;
+}
+
+header#page-header{
+	height: 80px;
+}
+
+	header#page-header h1#logo{
+		text-indent: -9999px;
+		background: url('../images/logo.png');
+		width: 212px;
+		height: 42px;
+	}
+
+	header#page-header span#current-value{
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		font-size: 10px;
+	}
+
+section#cover{
+	text-align: center;
+	font-family: 'Lato Light';
+}
+
+	section#cover h2#slogan{
+		line-height: 80px;
+		font-size: 24px;
+	}
+
+	section#cover p{
+		margin: 35px;
+		font-size: 18px;
+		line-height: 30px;
+		letter-spacing: 0.04em;
+	}
+
+input[type='button'],
+input[type='submit']{
+	font-weight: bold;
+	text-transform: uppercase;
+	padding: 20px 32px 20px 32px;
+	border: none;
+	font-size: 12px;
+	outline: none;
+	cursor: pointer;
+}
+
+input[type='button'].green,
+input[type='submit'].green{
+	background-color: #72a94f;
+	border-color: #72a94f !important;
+	color: #FFF;
+}
+
+input[type='button'].grey,
+input[type='submit'].grey{
+	background-color: #dbdbdb;
+}
+
+form#participate{
+	border-top: dashed 1px #e1e1e1;
+	border-bottom: dashed 1px #e1e1e1;
+	padding: 50px 0 50px 0;
+	text-align: center;
+	margin: 35px 0 35px 0;
+	font-size: 26px;
+	font-family: "Lato Light";
+}
+
+form#participate input{
+	padding: 10px 15px 10px 15px !important;
+	border: solid 1px #DADADA;
+	outline: none;
+}
+
+form#participate input:focus{
+	border-color: #72a94f;
+}
+
+footer#page-footer{
+	margin-top: 35px;
+	border-top: solid 1px #e1e1e1;
+	padding: 20px 0 20px 0;
+}
+
+.s4{
+	width: 320px;
+	float: left;
+	line-height: 23px;
+	letter-spacing: 0.03em;
+}
+
+.s4 h3,
+.s4 p{
+	margin: 10px;
+}
+
+.s4:first-child h3,
+.s4:first-child p{
+	margin-left: 0;
+	margin-right: 20px;
+}
+
+.s4:last-child h3,
+.s4:last-child p{
+	margin-left: 20px;
+	margin-right: 0;
+}
