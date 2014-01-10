@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<base href="http://localhost:8000"/>
+<title>Bitcoin Lottery</title>
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}">
+</head>
+<body>
+	<header id="page-header">
+		<div class="wrap">
+			<h1 id="logo">Bitcoin Lottery</h1>
+			<span id="current-value">1btc = 980.21 USD</span>
+		</div>
+	</header>
+	<section id="cover">
+		<div class="wrap">
+			<h2 id="slogan">Draw a winner</h2>
+			<p>Press on the button below to draw a winner.</p>
+			<form action="draw/winner" id="draw" method="POST">
+				{% csrf_token %}
+				<input type="submit" class="green" value="Draw winner"/>
+			</form>
+		</div>
+	</section>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script type="text/javascript">
+	$('form#draw').submit(function(){
+		$.ajax({
+			url: 'api/draw',
+			method: 'POST',
+			cache: false,
+			data: {
+				'csrfmiddlewaretoken': $('form#draw input[name=csrfmiddlewaretoken]').val()
+			}
+		}).done(function(response){
+			if(response.status == 'ok'){
+				$('h2#slogan').html('And the winner is...');
+				$('section#cover p').html(response.winner + ' (' + response.email + ')');
+			}
+			else{
+				console.log(response);
+				alert('Something went wrong on our side. Try again in a second!');
+			}
+		});
+		return false;
+	});
+	</script>
+</body>
+</html>
