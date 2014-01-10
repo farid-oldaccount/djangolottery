@@ -7,8 +7,9 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^$', 'djangolottery.apps.website.views.index'),
-    url(r'^api/participate/', 'djangolottery.apps.api.views.participate'),
     url(r'^draw/', 'djangolottery.apps.website.views.draw'),
+    url(r'^api/participate', 'djangolottery.apps.api.views.participate'),
+    url(r'^api/draw', 'djangolottery.apps.api.views.draw'),
     url(r'^admin/', include(admin.site.urls)),
 )
 
