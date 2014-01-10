@@ -7,13 +7,12 @@ def index(request):
 	return render_to_response('website/index.html',{},context_instance=RequestContext(request))
 
 def participate(request):
-	data = {
-		'works': 'yes'
-	}
-
 	name = request.POST['name']
 	email = request.POST['email']
 	bcaddress = request.POST['bcaddress']
 	amount = request.POST['amount']
 
-	return HttpResponse(json.dumps(data), content_type='application/json')
+
+	status = {'status': 'ok'}
+
+	return HttpResponse(json.dumps(status), content_type='application/json')

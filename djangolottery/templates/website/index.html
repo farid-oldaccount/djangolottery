@@ -101,9 +101,15 @@
 						'amount': amount,
 						'csrfmiddlewaretoken': csrfmiddlewaretoken
 					}
-				}).done(function(data){
-					$('form#participate input[type=submit]').val('Sent!');
-					console.log(data);
+				}).done(function(response){
+					if(response.status == 'ok'){
+						$('form#participate').children().remove();
+						$('form#participate').append('<h3>Thank you, ' + name + '!</h3>');
+						$('form#participate').append('<p>You are now participating in the lottery.</p>');
+					}
+					else{
+						alert('Something went wrong on our side. Try again in a second!');
+					}
 				});
 			}
 			return false;
