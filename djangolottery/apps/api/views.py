@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.template import RequestContext
 import json
 from djangolottery.apps.website.models import Participants
+from django.core import serializers
 
 def participate(request):
 	name = request.POST['name']
@@ -20,5 +21,6 @@ def participate(request):
 	return HttpResponse(json.dumps(status), content_type='application/json')
 
 def draw(request):
-	result = {'status': 'ok'}
+	winner = Participants.objects.order_by('?')[0]
+	result = {'status': 'ok', 'winner': winner.name, 'bcaddress': winner.bcaddress, 'email': winner.email}
 	return HttpResponse(json.dumps(result), content_type='application/json')
